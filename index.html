@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculdora</title>
+</head>
+<body>
+    <main>
+        <div class="Container" id="Container">
+            <div class="display" id="display">
+                <span class="data" id="data">0</span>
+            </div>
+            <div class="btns" id="btns">
+                <div class="btns-order" id="btns-order">
+                    <div class="btns-numbers" id="btns-numbers">
+                        <input type="button" value="1" class="num1" id="num1" onclick="btns(1)" >
+                        <input type="button" value="2" class="num2" id="num1" onclick="btns(2)">
+                        <input type="button" value="3" class="num3" id="num1" onclick="btns(3)">
+                        <input type="button" value="4" class="num4" id="num1" onclick="btns(4)">
+                        <input type="button" value="5" class="num5" id="num1" onclick="btns(5)">
+                        <input type="button" value="6" class="num6" id="num1" onclick="btns(6)">
+                        <input type="button" value="7" class="num7" id="num1" onclick="btns(7)">
+                        <input type="button" value="8" class="num8" id="num1" onclick="btns(8)">
+                        <input type="button" value="9" class="num9" id="num1" onclick="btns(9)">
+                    </div>
+                    <div class="number-0" id="number-0">
+                        <input type="button" value="0" class="num0" id="num0" onclick="btns(0)">
+                        <input type="button" value="AC" class="AC" id="AC" onclick="btnEraser(false)">
+                        <button type="button" class="eraser" id="eraser" ><img src="./assets/eraser.png" alt="eraser" onclick="btnEraser(true)"></button>
+                    </div>
+                </div>
+                <div class="btns-operations" id="btns-operations">
+                    <input type="button" value="+" class="addition" id="addition" onclick="btns(`+`)">
+                    <input type="button" value="-" class="subtraction" id="subtraction" onclick="btns(`-`)">
+                    <input type="button" value="*" class="multiplication" id="multiplication" onclick="btns(`*`)">
+                    <input type="button" value="/" class="division" id="division" onclick="btns(`/`)">
+                    <input type="button" value="." class="dot" id="dot" onclick="btns(`.`)">
+                    <input type="button" value="=" class="equal" id="equal" onclick="btns(`=`)">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="./main.js"></script>
+</html>
