@@ -36,9 +36,14 @@ main{
 
 span{
     height: 40px;
+    width: 358px;
+    white-space:nowrap;
 }
 
 .data{
+    text-align: end;
+    height: 40px;
+    width: 358px;
     font-size: xx-large;
     padding-right: 10px;
     padding-left: 10px;
