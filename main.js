@@ -7,16 +7,16 @@ var eraser = document.getElementById("eraser");
 
 function btns(num) {
 
-    if (num == '=') {
-        numbers = eval(all);
-        all = numbers.toString();
-        data.innerHTML = all;
+    if (num == "=") {
+        
     }
-    else {
+
+    if (num == '+' || num == '-' || num == '/' ||num == '*' ) {
         all = all + num;
         data.innerHTML = all;
-        scrollleftTop();
     }
+
+
 }
 
 function scrollleftTop() {
