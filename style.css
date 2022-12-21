@@ -122,25 +122,13 @@ button:hover{
 
 .num0{
     height: 90%;
-    width: 45%;
+    width: 50%;
 }
 
 .AC{
     background-color: #e74c3c;
-}
-
-.eraser{
-    background-color: #95a5a6;
-}
-
-.eraser>img{
-    height: 50%;
-    width: 70%;
-}
-
-.AC, .eraser{
     height: 90%;
-    width: 23%;
+    width: 40%;
     margin-left: 5px;
 }
 

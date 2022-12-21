@@ -1,64 +1,133 @@
 var nums = "";
+var num = 0;
 var convert = 0;
-var numbers = 0;
-var operationNum = 0;
+var guardstring = "";
 var guardnum = 0;
 var guardar = [];
 var all = "";
 var data = document.getElementById("data");
 var eraser = document.getElementById("eraser");
 
-function btns(numb) {
-        num = numb.toString();
-    if (num == '√') {
-        return console.log(Math.sqrt(25));
-    }
+function btns(entry) {
 
-    if (num == '^') {
-        return console.log(Math.pow(5,2));
-    }
+        num = entry.toString();
 
     if (num == '=') {
-        numbers = eval(all);
-        all = numbers.toString();
-        data.innerHTML = all;
+        
+        guardar.push(guardnum);
+        convert = operations(guardar);
+        data.innerHTML = convert.toString();
+        all = convert.toString()
+        guardar.length = 0;
+        guardnum = convert;
+        return console.log(guardar);
     }
+
     else {
         all = all + num;
         data.innerHTML = all;
         scrollleftTop();
     }
 
-    if (typeof numb === 'number'){
-        nums += numb.toString();
+    if (typeof entry === 'number'){
+        nums += entry.toString();
         guardnum = parseInt(nums); 
     }
 
-    if (typeof numb === 'string') {
-        console.log('numero guardado = ' + guardnum);
+    if (typeof entry === 'string' ) {
+        guardstring = entry;
         guardar.push(guardnum);
+        guardar.push(guardstring);
         nums ='';
-        guardbum = 0; 
+        guardnum = 0; 
         console.log(guardar);
-        console.log('numero borrado = ' + guardnum);
+    }
+    
+}
+
+function operations(list) {
+    console.log(guardar);
+
+    for (let index = 0; index < list.length; index++) {
+        if (list[index] == "-" && list[index+1]>0) {
+            let result = -(list[index+1]);
+            list[index+1] = result; 
+            list[list.length] = result; 
+
+            
+         } 
+        if (list[index] == "^") {
+           let result = Math.pow(list[index-1],list[index+1]);  
+           list[index-1] = result; 
+           list[index+1] = result; 
+           list[list.length] = result; 
+           console.log(list);
+           
+        }
+
+        if (list[index] == "√") {
+           let result = Math.sqrt(list[index+1]);
+           console.log(result);
+           if (index > 1) {
+                list[index-1] = result;
+                list[index+1] = result;
+                list[list.length] = result;
+                //list[index+1] = list[index-1]; 
+                console.log('antes' + list)
+                console.log('despues' + list)
+
+           }
+           
+           list[index-1] = result; 
+           list[index+1] = result;
+           list[list.length] = result;
+        }
+        
     }
 
-    /* if (typeof numb === 'string') {
-        console.log('letra')
-    }
-        convert = parseInt(all);
-        let verify = all*1;
-        console.log(verify);
-        if (Number.isNaN(verify)){
-            console.log(convert)
-            let guardar = [];
-            guardar.push(convert);
-            convert = 0;
-        } */
-    
-    
-   
+        for (let index = 0; index < list.length; index++) {
+            if (list[index] == "*") {
+               let result = list[index-1] * (list[index+1]);
+               list[index+1] = result; 
+               list[list.length] = result; 
+               console.log('multi')
+               console.log(list)
+               console.log(result)
+               
+            }
 
+            if (list[index] == "/") {
+               let result = list[index-1] / list[index+1];
+               list[index+1] = result; 
+               list[list.length] = result; 
+               console.log('div')
+               console.log(list)
+               
+            }
+            
+        }
+
+        for (let index = 0; index < list.length; index++) {           
+            if (list[index] == "+") {
+                let result = list[index-1] + list[list.length-1];
+                list[index+1] = result; 
+                list[list.length] = result; 
+        
+             }
+
+             if (list[index] == "-") {
+                let result = list[index-1] +list[list.length-1];
+                console.log(list.length-1);
+                list[index+1] = result; 
+                list[list.length] = result; 
+                console.log(list);
+                
+             } 
+        }
+
+        console.log(guardar);
+
+    return list[list.length - 1 ];
 }
 
 function scrollleftTop() {
@@ -68,21 +137,15 @@ function scrollleftTop() {
 
 }
 
-function btnEraser(valor) {
-
-    if (valor == false) {
-        data.innerHTML = '0';
-        all = "";
-        nums = "";
-        numbers = 0;
-        operationNum = 0;
-    }
-
-    if (valor == true) {
-        let valueWord = data.textContent;
-        let newvalueWord = valueWord.substring(0, valueWord.length - 1);
-        data.innerHTML = newvalueWord;
-        all = newvalueWord;
-    }
-
+function btnEraser() {
+    data.innerHTML = '0';
+    all = "";
+    nums = "";
+    numbers = 0;
+    guardar = [];
+    numbers = 0;
+    num = 0;
+    convert = 0;
+    guardstring = "";
+    guardnum = 0;
 }
