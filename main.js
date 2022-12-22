@@ -59,7 +59,11 @@ function operations(list) {
         if (list[index] == "^") {
            let result = Math.pow(list[index-1],list[index+1]);  
            list[index-1] = result; 
-           list[index+1] = result; 
+           for (let i = index; i < list.length; i++) { 
+               list[i] = list[i+2]
+            }
+            list.pop();
+            list.pop();
            list[list.length] = result; 
            console.log(list);
            
@@ -70,7 +74,11 @@ function operations(list) {
            console.log(result);
            if (index > 1) {
                 list[index-1] = result;
-                list[index+1] = result;
+                for (let i = index; i < list.length; i++) { 
+                    list[i] = list[i+2]
+                }
+                list.pop();
+                list.pop();
                 list[list.length] = result;
                 //list[index+1] = list[index-1]; 
                 console.log('antes' + list)
@@ -79,7 +87,6 @@ function operations(list) {
            }
            
            list[index-1] = result; 
-           list[index+1] = result;
            list[list.length] = result;
         }
         
@@ -88,8 +95,13 @@ function operations(list) {
         for (let index = 0; index < list.length; index++) {
             if (list[index] == "*") {
                let result = list[index-1] * (list[index+1]);
-               list[index+1] = result; 
-               list[list.length] = result; 
+               list[index-1] = result; 
+               for (let i = index; i < list.length; i++) { 
+                   list[i] = list[i+2]
+                }
+                list.pop();
+                list.pop(); 
+                list[list.length] = result;
                console.log('multi')
                console.log(list)
                console.log(result)
@@ -98,8 +110,13 @@ function operations(list) {
 
             if (list[index] == "/") {
                let result = list[index-1] / list[index+1];
-               list[index+1] = result; 
-               list[list.length] = result; 
+               list[index-1] = result; 
+               for (let i = index; i < list.length; i++) { 
+                   list[i] = list[i+2]
+                }
+                list.pop();
+                list.pop(); 
+                list[list.length] = result; 
                console.log('div')
                console.log(list)
                
@@ -109,14 +126,14 @@ function operations(list) {
 
         for (let index = 0; index < list.length; index++) {           
             if (list[index] == "+") {
-                let result = list[index-1] + list[list.length-1];
+                let result = list[index-1] + list[index+1];
                 list[index+1] = result; 
                 list[list.length] = result; 
         
              }
 
              if (list[index] == "-") {
-                let result = list[index-1] +list[list.length-1];
+                let result = list[index-1] +list[index+1];
                 console.log(list.length-1);
                 list[index+1] = result; 
                 list[list.length] = result; 
