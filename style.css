@@ -128,7 +128,13 @@ button:hover{
 .AC{
     background-color: #e74c3c;
     height: 90%;
-    width: 40%;
+    width: 30%;
+    margin-left: 5px;
+}
+
+.res{
+    height: 90%;
+    width: 20%;
     margin-left: 5px;
 }
 
