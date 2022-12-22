@@ -32,8 +32,6 @@ function btns(entry) {
     if (typeof entry === 'number') {
         nums += entry.toString();
         guardnum = parseInt(nums);
-        console.log('entrada: ' + guardnum)
-        console.log('numguardado: ' + guardnum)
     }
 
     if (typeof entry === 'string') {
@@ -42,13 +40,11 @@ function btns(entry) {
         guardar.push(guardstring);
         nums = '';
         guardnum = 0;
-        console.log(guardar);
     }
 
 }
 
 function operations(list) {
-    console.log(guardar);
 
     function reordenar(index, result) {
         list[index - 1] = result;
@@ -71,15 +67,12 @@ function operations(list) {
         if (list[index] == "-" && list[index + 1] > 0) {
             let result = -(list[index + 1]);
             list[index + 1] = result;
-            console.log(index + 1)
+            
 
             if (list[index - 1] == 0) {
                 reordenar(index, result);
                 index = 0;
-                console.log(list)
             }
-            console.log(list)
-            console.log(list)
             list[list.length] = result;
 
         }
@@ -87,19 +80,14 @@ function operations(list) {
             let result = Math.pow(list[index - 1], list[index + 1]);
             reordenar(index, result);
             index = 0;
-            console.log(list);
 
         }
 
         if (list[index] == "√") {
             let result = Math.sqrt(list[index + 1]);
-            console.log(result);
             if (index > 1) {
                 reordenar(index, result);
                 index = 0;
-                //list[index+1] = list[index-1]; 
-                console.log('antes' + list)
-                console.log('despues' + list)
 
             }
 
@@ -114,9 +102,6 @@ function operations(list) {
             let result = list[index - 1] * (list[index + 1]);
             reordenar(index, result);
             index = 0;
-            console.log('multi')
-            console.log(list)
-            console.log(result)
 
         }
 
@@ -124,9 +109,6 @@ function operations(list) {
             let result = list[index - 1] / list[index + 1];
             reordenar(index, result);
             index = 0;
-            console.log('div')
-            console.log(list)
-
         }
 
     }
@@ -140,8 +122,6 @@ function operations(list) {
         }
 
     }
-
-    console.log(guardar);
 
     return list[list.length - 1];
 }
